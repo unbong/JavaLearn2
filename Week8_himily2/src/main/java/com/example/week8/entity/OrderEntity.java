@@ -56,4 +56,5 @@ public class OrderEntity implements Serializable {
 	 */
 	private String updateTimestamp;
 
+
 }

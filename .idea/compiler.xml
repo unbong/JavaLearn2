@@ -10,7 +10,6 @@
         <module name="Week8" />
         <module name="himily_eureka" />
         <module name="Week8_himily2" />
-        <module name="Week8_himily" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

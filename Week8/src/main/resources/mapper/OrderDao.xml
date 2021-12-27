@@ -14,6 +14,33 @@
         <result property="createTimestamp" column="create_timestamp"/>
         <result property="updateTimestamp" column="update_timestamp"/>
     </resultMap>
+    <insert id="addTry">
 
+        insert into local_try_log values(#{txNo},now())
+    </insert>
+
+    <insert id="addConfirm">
+        insert into local_confirm_log values(#{txNo},now())
+    </insert>
+
+    <insert id="addCancel">
+        insert into local_cancel_log values(#{txNo},now())
+    </insert>
+
+    <update id="update_">
+        update order  set amount =  #{amount} where order_id = #{orderId}
+
+    </update>
+    <select id="isExist" resultType="java.lang.Integer">
+        select count(1) from local_try_log where tx_no =#{txNo}
+
+    </select>
+    <select id="isExistConfirm" resultType="java.lang.Integer">
+        select count(1) from local_confirm_log where tx_no = #{txNo}
+    </select>
+
+    <select id="isExistCancel" resultType="java.lang.Integer">
+        select count(1) from local_cancel_log where tx_no = #{txNo}
+    </select>
 
 </mapper>

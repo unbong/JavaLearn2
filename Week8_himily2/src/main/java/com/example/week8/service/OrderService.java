@@ -2,6 +2,7 @@ package com.example.week8.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.example.week8.entity.OrderEntity;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * 
@@ -19,7 +20,9 @@ public interface OrderService extends IService<OrderEntity> {
    // void add(OrderEntity order);
 
 
-    void update(OrderEntity order);
+
+
+    void update_(OrderEntity order);
 
 }
 
