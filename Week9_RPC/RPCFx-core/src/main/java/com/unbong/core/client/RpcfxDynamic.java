@@ -94,6 +94,15 @@ public final class RpcfxDynamic {
 
         }
 
+        
+
+        /**
+         * OKHttp 发送请求
+         * @param request
+         * @param url
+         * @return
+         * @throws IOException
+         */
         private RpcfxResponse post(RpcfxRequest request, String url) throws IOException {
 
             String Json = JSON.toJSONString(request);
@@ -114,6 +123,8 @@ public final class RpcfxDynamic {
             log.info("ResJson：{}", resJson);
             return JSON.parseObject(resJson, RpcfxResponse.class);
         }
+
+
 
     }
 }
