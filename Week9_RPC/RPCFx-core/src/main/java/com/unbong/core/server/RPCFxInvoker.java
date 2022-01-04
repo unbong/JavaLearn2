@@ -12,7 +12,7 @@ import java.lang.reflect.Method;
 import java.util.Arrays;
 
 public class RPCFxInvoker {
-    private RpcfxResolver resolver;
+    private final RpcfxResolver resolver;
 
     public RPCFxInvoker(RpcfxResolver resolver)
     {

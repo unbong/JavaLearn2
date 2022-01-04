@@ -32,7 +32,7 @@ public final class RpcfxDynamic {
         List<String> urls = router.route(invoker);
         String url = loadBalance.select(urls);
 
-        return (T)create(serviceClass, url, filter);
+        return create(serviceClass, url, filter);
     }
 
     public static<T> T create(final Class<T> serviceClass, final String url, Filter ... filters)
@@ -94,7 +94,7 @@ public final class RpcfxDynamic {
 
         }
 
-        
+
 
         /**
          * OKHttp 发送请求

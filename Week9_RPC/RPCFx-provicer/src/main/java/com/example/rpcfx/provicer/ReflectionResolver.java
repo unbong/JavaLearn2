@@ -137,8 +137,8 @@ public class ReflectionResolver implements RpcfxResolver {
             } else {
                 String childFilePath = childFile.getPath();
                 if (childFilePath.endsWith(".class")) {
-                    String className = childFilePath.substring(childFilePath.lastIndexOf("\\com\\") + 1,
-                            childFilePath.length()).replaceAll("\\\\", ".");
+                    String className = childFilePath.substring(childFilePath.lastIndexOf("\\com\\") + 1
+                    ).replaceAll("\\\\", ".");
                     className = className.substring(0, className.indexOf(".class"));
                     log.info("full path name:{}", className);
                     classNames.add(className);
@@ -156,7 +156,7 @@ public class ReflectionResolver implements RpcfxResolver {
         List<String> classNames = new ArrayList<String>();
         Enumeration<JarEntry> entrys = jarFile.entries();
         while (entrys.hasMoreElements()) {
-            JarEntry jarEntry = (JarEntry) entrys.nextElement();
+            JarEntry jarEntry = entrys.nextElement();
             String entryName = jarEntry.getName();
             if(entryName.endsWith(".class")) {
                 String className = entryName.replace("/", ".");

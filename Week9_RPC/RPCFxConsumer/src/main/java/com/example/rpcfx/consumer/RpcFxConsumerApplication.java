@@ -7,10 +7,11 @@ import com.unbong.core.client.RpcfxAOP;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
 
 @Slf4j
 @SpringBootApplication
-//@ComponentScan("")
+@ComponentScan("com.unbong.core.client")
 public class RpcFxConsumerApplication {
 
 
@@ -20,6 +21,8 @@ public class RpcFxConsumerApplication {
 //                new AnnotationConfigApplicationContext(RpcfxAOP.class);
         SpringApplication.run(RpcFxConsumerApplication.class, args);
 //        RpcfxAOP rpcfxAOP = (RpcfxAOP)ctx.getBean(RpcfxAOP.class);
+
+
 
         @RpcAop( value = "aop",serviceClass = UserService.class, url = "http://localhost:8080/")
         RpcfxAOP rpcfxAOP = new RpcfxAOP();

@@ -38,7 +38,9 @@ public class NettyRequestClient {
         httpRequest.headers().set(HttpHeaders.Names.CONNECTION, HttpHeaders.Values.KEEP_ALIVE);
 //        httpRequest.headers().set(HttpHeaders.Names.CONTENT_LENGTH, httpRequest.);
 //        httpRequest;
-        httpRequest.setCon
+//        httpRequest.setCon
+
+        return "";
     }
 
 }
