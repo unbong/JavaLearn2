@@ -8,7 +8,7 @@ public class OrderServiceImpl implements OrderService {
     public Order findById(long orderId) {
         Order order = new Order();
         order.setOrderId(1L);
-        order.setAmount(100L);
+//        order.setAmount(100);
         return order;
     }
 }

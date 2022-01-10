@@ -8,8 +8,8 @@ public class UserServiceImpl implements UserService {
     public User findById(int Id) {
 
         User user = new User();
-        user.setUserId(1);
-        user.setUserName("unbong");
+//        user.setUserId(1);
+//        user.setUserName("unbong");
         return user;
     }
 }

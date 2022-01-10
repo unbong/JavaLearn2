@@ -13,6 +13,7 @@ public class NettyClientChannelInitializer extends ChannelInitializer<SocketChan
     protected void initChannel(SocketChannel ch) throws Exception {
         ch.pipeline().addLast(new HttpResponseDecoder());
         ch.pipeline().addLast(new HttpRequestEncoder());
-        ch.pipeline().addLast(new NettyClientHandler());
+//        ch.pipeline().addLast(new NettyClientHandler());
+        ch.pipeline().addLast(new NettyClientResHandler());
     }
 }

@@ -25,18 +25,31 @@ public class RpcfxAOP implements ApplicationContextAware{
 
     @Autowired
     MyInvocationHandler myInvocationHandler;
-    public   <T> T create(final Class<T> serviceClass,  Filter... filters)
+//
+
+
+    public   <T> T create(final Class<T> serviceClass, String url,  Filter... filters)
     {
         log.info("create Rpcfx AOP");
 //        MyInvocationHandler myInvocationHandler = applicationContext.getBean(MyInvocationHandler.class);
+        myInvocationHandler.setUrl(url);
+        myInvocationHandler.setServiceClass(serviceClass);
+        myInvocationHandler.setFilters(filters);
         return (T)Proxy.newProxyInstance(RpcfxAOP.class.getClassLoader(), new Class[]{serviceClass},
                 myInvocationHandler );
+
+
+
+//        return (T)applicationContext.getBean(serviceClass);
     }
 
 
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
         this.applicationContext = applicationContext;
+
+//        Object s=   applicationContext.getBean(MyInvocationHandler.class);
+//        log.info(s.toString());
     }
 
 
