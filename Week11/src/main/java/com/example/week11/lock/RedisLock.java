@@ -75,6 +75,11 @@ public class RedisLock {
 
     }
 
+    /**
+     * 释放锁
+     *
+     * @return
+     */
     public boolean unlock()
     {
         Long res = redisTemplate.execute(new DefaultRedisScript<>(unlockScript,Long.class ),

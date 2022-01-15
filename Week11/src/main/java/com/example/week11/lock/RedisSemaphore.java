@@ -15,10 +15,19 @@ public class RedisSemaphore {
 
     private String keyName;
 
+    /**
+     * 创建信号量
+     *
+     * @param keyName           键名
+     * @param amount            数量
+     * @param timeOutSecond     超时时间
+     * @return
+     */
     public boolean createSemaphore( String keyName, int amount, long timeOutSecond){
         this.keyName = keyName;
         long start = System.currentTimeMillis();
 
+        // 尝试获得一个信号量
         boolean result = redisTemplate.opsForValue().setIfAbsent(keyName, Integer.valueOf(amount).toString(), timeOutSecond, TimeUnit.SECONDS);
 
         if(result == true)
@@ -29,6 +38,7 @@ public class RedisSemaphore {
         while(true)
         {
             long duration = System.currentTimeMillis() - start;
+            // 一直尝试获取信号量到超时时间为止
             if( duration > timeOutSecond * 1000)
             {
                 return false;
@@ -49,7 +59,11 @@ public class RedisSemaphore {
     }
 
 
-
+    /**
+     * 获得一个信号
+     *
+     * @return
+     */
     public boolean getSemaphore()
     {
         Long amount =redisTemplate.opsForValue().decrement(this.keyName);
