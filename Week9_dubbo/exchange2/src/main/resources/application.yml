@@ -1,0 +1,5 @@
+spring:
+  datasource:
+    username: root
+    url: jdbc:mysql://localhost:3316/account_1?serverTimezone=UTC&useSSL=false&useUnicode=true&characterEncoding=UTF-8
+    driver-class-name: com.mysql.jdbc.Driver
