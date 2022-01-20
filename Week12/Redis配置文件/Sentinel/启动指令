@@ -1,0 +1,18 @@
+
+redis sentine 启动
+docker run -p 16378:6379 \
+ -v /mydata/redis/data-sentinel-master:/data \
+ -v /mydata/redis/conf-master:/etc/redis \
+ --name redis_sentinel_master -it  redis
+
+
+docker run -p 26378:26379 \
+ -v /mydata/redis/data-sentinel-slave0:/data \
+ -v /mydata/redis/conf-slave:/etc/redis \
+ --name redis_sentinel_slave0 -it  redis  redis-sentinel /etc/redis/sentinel.conf
+
+docker run -p 36378:36379 \
+ -v /mydata/redis/data-sentinel-slave1:/data \
+ -v /mydata/redis/conf-slave1:/etc/redis \
+ --name redis_sentinel_slave1 -it  redis  redis-sentinel /etc/redis/sentinel.conf
+

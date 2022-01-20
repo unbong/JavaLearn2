@@ -1,0 +1,7 @@
+
+docker run -p 16379:6379  \
+-v /mydata/redis/data-master:/data \
+-v /mydata/redis/conf-master:/etc/redis \
+--name redis_master \
+-it  \
+redis-server /etc/redis/redis.conf  redis

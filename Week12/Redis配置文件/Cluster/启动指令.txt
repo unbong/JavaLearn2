@@ -1,0 +1,28 @@
+docker run  \
+-v /mydata/redis/data-cluster1:/data \
+-v /mydata/redis/conf-cluster1:/etc/redis \
+--name redis_cluster1 \
+--network host \
+-it  \
+ redis redis-server /etc/redis/redis.conf
+
+docker run  \
+-v /mydata/redis/data-cluster2:/data \
+-v /mydata/redis/conf-cluster2:/etc/redis \
+--name redis_cluster2 \
+--network host \
+-it  \
+ redis redis-server /etc/redis/redis.conf
+
+
+docker run   \
+-v /mydata/redis/data-cluster3:/data \
+-v /mydata/redis/conf-cluster3:/etc/redis \
+--name redis_cluster3 \
+--network host \
+-it  \
+ redis redis-server /etc/redis/redis.conf
+
+
+redis-cli --cluster create 192.168.56.10:6379 192.168.56.10:6380 192.168.56.10:6381
+
