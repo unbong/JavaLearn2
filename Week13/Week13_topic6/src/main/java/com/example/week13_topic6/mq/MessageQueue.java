@@ -1,37 +1,8 @@
 package com.example.week13_topic6.mq;
 
-import lombok.Data;
-import lombok.SneakyThrows;
+public interface MessageQueue {
 
-import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.TimeUnit;
+    public void add(Message data);
 
-
-public class MessageQueue<T> {
-
-    private String topic;
-    private int capacity;
-    private LinkedBlockingQueue<T> queue;
-
-    public MessageQueue(String topic, int capacity)
-    {
-        topic = topic;
-        capacity = capacity;
-        queue = new LinkedBlockingQueue<T>(capacity);
-    }
-
-    public void add(T data)
-    {
-        queue.add(data);
-    }
-
-    @SneakyThrows
-    public T poll(long timeout)
-    {
-        return queue.poll( timeout, TimeUnit.MILLISECONDS );
-    }
-
-
-
-
+    public Message poll();
 }
