@@ -1,0 +1,7 @@
+spring:
+  kafka:
+    bootstrap-servers: 192.168.56.10:9090,192.168.56.10:9091,192.168.56.10:9092 # kafka连接接地址
+    consumer:
+      group-id: 1
+    template:
+      default-topic: topic
